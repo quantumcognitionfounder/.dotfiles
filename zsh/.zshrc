@@ -8,13 +8,30 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # Source antigen plugin manager.
-ANTIGEN_PATH=~/
 source $HOME/.antigen.zsh
 
-# Antigen init
-antigen init .antigenrc
+# Load the oh-my-zsh's library.
+antigen use oh-my-zsh
 
-export PATH=$PATH:/usr/local/go/bin
+# Bundles from the default repo (robbyrussell's oh-my-zsh).
+antigen bundle git
+antigen bundle command-not-found
+antigen bundle colored-man-pages
+antigen bundle z
+antigen bundle tmux
+antigen bundle sudo
+
+# Syntax highlighting bundle.
+antigen bundle zsh-users/zsh-syntax-highlighting
+
+# Bundles from outside the default repository.
+antigen bundle zsh-users/zsh-autosuggestions
+
+# Set powerlevel10k theme
+antigen theme romkatv/powerlevel10k
+
+# Tell Antigen that you're done.
+antigen apply
 
 # --------------------------------- ALIASES -----------------------------------
 
@@ -243,6 +260,9 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status command_execution_time background_job
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# ------------------------------- PATH ---------------------------------
+export PATH=$PATH:/usr/local/go/bin
 
 # ------------------------------- Pyenv initilization ---------------------------------
 
