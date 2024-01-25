@@ -34,6 +34,9 @@ antigen theme romkatv/powerlevel10k
 # Tell Antigen that you're done.
 antigen apply
 
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
 # --------------------------------- ALIASES -----------------------------------
 
 alias ..='cd ..'
@@ -258,9 +261,6 @@ POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX='%F{blue}╭─'
 POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX='%F{blue}╰%f '
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon root_indicator ssh virtualenv dir dir_writable vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status command_execution_time background_jobs time ram)
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # ------------------------------- PATH ---------------------------------
 export PATH=$PATH:/usr/local/go/bin
