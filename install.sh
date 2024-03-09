@@ -28,12 +28,17 @@ $ git clone https://github.com/pyenv/pyenv-virtualenv.git $(pyenv root)/plugins/
 # Add pyenv-virtualenv to zshrc
 echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.zshrc
 
+export PYENV_ROOT="$HOME/.pyenv"
+
+# Install pyenv-virtualenv
+git clone https://github.com/pyenv/pyenv-virtualenv.git $(pyenv root)/plugins/pyenv-virtualenv
+
 # Update dbs
 sudo update-command-not-found
 sudo apt-file update
 
 # Change default shell
-sudo chsh -s $(which zsh) $USER
+sudo sh -c "chsh -s $(which zsh) $USER"
 
 # Install antigen
 curl -L git.io/antigen > ~/.antigen.zsh
